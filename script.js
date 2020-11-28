@@ -197,7 +197,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
         loading.classList.add('hidden');
 
-      })
+      }
   }
 
 
