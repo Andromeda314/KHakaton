@@ -94,7 +94,7 @@ window.addEventListener('DOMContentLoaded', function () {
 //       .then(json => {
              
 //         console.log(json)
-        return ({
+        return function(){
         itemCard.innerHTML = `
           <div class="overlay row">
             <div class="wrap">
@@ -198,7 +198,7 @@ window.addEventListener('DOMContentLoaded', function () {
         loading.classList.add('hidden');
 
       })
-  })
+  }
 
 
   document.querySelector('.sendForm').addEventListener('click', function() {
