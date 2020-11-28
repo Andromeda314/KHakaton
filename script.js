@@ -38,7 +38,8 @@ window.addEventListener('DOMContentLoaded', function () {
    
 
 
-  function sendPost(method = 'POST', url = 'https://jsonplaceholder.typicode.com/users', body) {
+//   function sendPost(method = 'POST', url = 'https://jsonplaceholder.typicode.com/users', body) {
+      function sendPost(){
 
     loading.classList.remove('hidden');
 
@@ -79,20 +80,21 @@ window.addEventListener('DOMContentLoaded', function () {
       }, 
     };
 
-    const headers = {
-      'Content-Type': 'application/json'
-    }
+//     const headers = {
+//       'Content-Type': 'application/json'
+//     }
 
-    return fetch(url, {
+//     return fetch(url, {
 
-        method: method,
-        body: JSON.stringify(body),
-        headers: headers
-      })
-      .then(response => response.json())
-      .then(json => {
+//         method: method,
+//         body: JSON.stringify(body),
+//         headers: headers
+//       })
+//       .then(response => response.json())
+//       .then(json => {
              
-        console.log(json)
+//         console.log(json)
+        return {
         itemCard.innerHTML = `
           <div class="overlay row">
             <div class="wrap">
@@ -108,19 +110,19 @@ window.addEventListener('DOMContentLoaded', function () {
                         <div class="card__list">
                             <ul class="patientMainInfo">
                                 <li>
-                                 ФИО - ${json.namePacient}
+                                 ФИО - ${body.namePacient}
                                 </li>
                                 <li>
-                                  Рост - ${json.heightPeople}
+                                  Рост - ${body.heightPeople}
                                 </li>
                                 <li>
-                                  Вес - ${json.weightPeople}
+                                  Вес - ${body.weightPeople}
                                 </li>
                                  <li>
-                                  Глюкоза - ${json.glukoza}
+                                  Глюкоза - ${body.glukoza}
                                 </li>
                                  <li>
-                                  Холестерин - ${json.kholesterin}
+                                  Холестерин - ${body.kholesterin}
                                 </li>
                             </ul>
                         </div>
@@ -129,39 +131,39 @@ window.addEventListener('DOMContentLoaded', function () {
                     <div class="main__item main__item-center card" style="color: black;">
 
                         <div class="card__header">
-                            ${json.namePacient}
+                            ${body.namePacient}
                         </div>
 
                         <div class="card__list">
                             <ul>
                                 <li>
                                     <strong>Место жительства</strong>
-                                    <span>${json.mestoProz.text}</span>
+                                    <span>${body.mestoProz.text}</span>
                                     <span> - г. Кемерово</span>
                                 </li>
                                 <li>
                                     <strong>Образ жизни</strong>
-                                    <span>${json.obraz.text}</span>
+                                    <span>${body.obraz.text}</span>
                                 </li>
                                 <li>
                                     <strong>Достаток</strong>
-                                    <span>${json.dostatok.text}</span>
+                                    <span>${body.dostatok.text}</span>
                                 </li>
                                 <li>
                                     <strong>Стресс</strong>
-                                    <span>${json.stress.text}</span>
+                                    <span>${body.stress.text}</span>
                                 </li>
                                 <li>
                                     <strong>Курение</strong>
-                                    <span>${json.kurenie.text}</span>
+                                    <span>${body.kurenie.text}</span>
                                 </li>
                                 <li>
                                     <strong>Алкоголь</strong>
-                                    <span>${json.alc.text}</span>
+                                    <span>${body.alc.text}</span>
                                 </li>
                                 <li>
                                     <strong>Спорт</strong>
-                                    <span>${json.sport.text}</span>
+                                    <span>${body.sport.text}</span>
                                 </li>
                                 <li>
                                     <strong>Предварительный диагноз</strong>
