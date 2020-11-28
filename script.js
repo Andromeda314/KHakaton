@@ -43,7 +43,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     loading.classList.remove('hidden');
 
-    body = {
+    let body = {
       namePacient: namePacient.value,
       age: age.value, 
       heightPeople: heightPeople.value, 
