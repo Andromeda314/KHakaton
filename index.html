@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+</head>
+<body>
+
+<!-- loading -->
+
+<div class="load">
+  <img src='./load.gif'>
+</div>
+
+<!-- main -->
+
+
+  <div class="slider">
+    <!-- Первая секция -->
+  	<div class="item">
+        <div class="overlay row">
+            <div class="wrap">
+                <div class="wrap__item title row">
+                    <h2>Общие сведения</h2>
+                    <button class="title__btn">Войти</button>
+                </div>
+                  <div class="wrap__item main row">
+                    <div class="main__item">
+                      <span>ФИО</span>
+                      <input class="namePacient" type="text">
+                    </div>
+                    <div class="main__item">
+                      <span>Возраст</span>
+                      <input class="age" type="text">
+                    </div>
+                    <div class="main__item">
+                      <span>Рост</span>
+                      <input class="heightPeople" type="text">
+                    </div>
+                    <div class="main__item">
+                      <span>Вес</span>
+                      <input class="weightPeople" type="text">
+                    </div>
+                    <div class="main__item">
+                      <span>Глюкоза</span>
+                      <input class="glukoza" type="text">
+                    </div>
+                    <div class="main__item">
+                      <span>Холестерин</span>
+                      <input class="kholesterin" type="text">
+                    </div>
+                    <div class="main__item">
+                        <span>Образ жизни</span>
+                        <select class="obraz">
+                          <option value="0">Активный</option>
+                          <option value="1">Умеренно активный</option>
+                        </select>
+                    </div>
+                    <div class="main__item">
+                      <span>Стрессовые ситуации</span>
+                      <select class="stress">
+                        <option value="0">Регулярно испытываю</option>
+                        <option value="1">Периодически испытываю</option>
+                      </select>
+                    </div>
+                    <div class="main__item">
+                      <span>Достаток</span>
+                      <select class="dostatok">
+                        <option value="0">Высокий</option>
+                        <option value="1">Средний</option>
+                        <option value="2">Низкий</option>
+                      </select>
+                    </div>
+                    <div class="main__item">
+                      <span>Место проживания</span>
+                      <select class="mestoProz">
+                        <option value="0">Город</option>
+                        <option value="1">Село</option>
+                      </select>
+                    </div>
+                    <div class="main__item">
+                      <span>Алкоголь</span>
+                      <select class="alc">
+                        <option value="0">Нет</option>
+                        <option value="1">Да</option>
+                      </select>
+                    </div>
+                    <div class="main__item">
+                      <span>Курение</span>
+                      <select class="kurenie">
+                        <option value="0">Нет</option>
+                        <option value="1">Да</option>
+                      </select>
+                    </div>
+                    <div class="main__item">
+                      <span>Спорт</span>
+                      <select class="sport">
+                        <option value="0">Не занимаюсь</option>
+                        <option value="1">Умеренная физическая активность</option>
+                        <option value="2">Постоянные занятия спортом</option>
+                      </select>
+                    </div>
+                    <button class="sendForm card__btn card__btn-white">Исследовать</button>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MODAL -->
+
+<div class="modal">
+  <div class="modal-card">
+      <h1>Рекомендации системы</h1>
+      <span class="closeBtn">&times;</span>
+      <div class="modal-card__item">
+          Рекомендация 1 
+      </div>
+      <div class="modal-card__item">
+          Рекомендация 2 
+      </div>
+      <div class="modal-card__item">
+          Рекомендация 3
+      </div>
+  </div>
+</div>
+    
+
+
+  <script src="./script.js"></script>
+</body>
+</html>
