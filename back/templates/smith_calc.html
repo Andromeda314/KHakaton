@@ -1,0 +1,156 @@
+{% extends "warApp/wrapper.html" %}
+
+{% block header %}
+<title>Просмотр боя</title>
+{% endblock %}
+
+
+{% block content %}
+<p></p>Простенький калькулятор оптислома артефактов. Багов много, толку мало, зато без регистрации и смс.</p>
+{% if english %}
+<p>Send me message, if you need this calc in english version</p>
+{% endif %}
+<table align="center" width=50%>
+<tbody>
+<tr><td>
+    <input id="price"/ placeholder="Базовая цена" title="Базовая цена">+
+    <input id="enchant"/ placeholder="Стоимость крафта" title="Стоимость крафта">
+</td></tr>
+<tr><td>
+    <input id="repair"/ placeholder="Цена ремонта" title="Цена ремонта">
+</td></tr>
+<tr><td>
+    <input id="base_dura"/ placeholder="Базовая прочность" title="Базовая прочность">
+</td></tr>
+<tr><td>
+    <input id="dura_from"/ placeholder="Прочность от" title="Прочность от">
+    <input id="dura_to"/ placeholder="Прочность до" title="Прочность до">
+</td></tr>
+<tr><td>
+    <input id="smith_cost"/ placeholder="Ставка кузнеца" title="Ставка кузнеца">
+    <input id="smith_res"/ placeholder="Эффективность кузнеца" title="Эффективность кузнеца">
+</td></tr>
+<tr><td align = center>
+    <button onclick="func()">Посчитать</button>
+</tr>
+
+<tr><td>
+    <table border=2>
+    <tbody align="center" bgcolor=#a9f9ff>
+    <tr height=50><td width=33%>
+        
+        </td>
+        <td width=33%>
+            Для текущего арта
+        </td>
+        <td width=33%>
+            Для болванки
+        </td>
+    </tr>
+    <tr height=50>
+    <td>
+        Цена за бой </td>
+        <td><p id="optimum"></p></td>
+        <td><p id="optimum_ideal"></p></td>
+    </tr>
+    <tr height=50>
+    <td>Итоговая прочность</td>
+        <td><p id="dura_res"></p></td>
+        <td><p id="res_dura_ideal"></p></td>
+    </tr>
+    <tr height=50>
+    <td>Всего боёв</td>
+        <td><p id="total_battles"></p></td>
+        <td><p id="total_battles_ideal"></p></td>
+    </tr>
+    <tr height=50>
+    <td>Проведено боёв</td>
+        <td><p id="spent"></p></td>
+        <td><p id="spent_ideal"></p></td>
+    </tr>
+    <tr height=50>
+        <td>Остаточная стоимость</td>
+        <td><p id="money_left"></p></td>
+        <td><img src="https://dcdn2.lordswm.com/i/r/gold.png"></td>
+    </tr>
+    </tbody>
+    </table>
+</td></tr>
+</tbody>
+</table>
+ <script>
+
+    function func(){
+          var price = Number(document.getElementById("price").value);
+          var enchant = Number(document.getElementById("enchant").value);
+          var repair = Number(document.getElementById("repair").value);
+          var base_dura = Number(document.getElementById("base_dura").value);
+          var dura_to = Number(document.getElementById("dura_to").value);
+          var dura_from = Number(document.getElementById("dura_from").value);
+          var smith_cost = Number(document.getElementById("smith_cost").value)/100;
+          var smith_res = Number(document.getElementById("smith_res").value)/100;
+          var res_price = price+enchant;
+          var total_money = res_price;
+          var total_battles = dura_from;
+          var optimum = total_money/total_battles;
+          var res_dura = dura_to;
+
+          for (var i = dura_to; i>0; i--)
+        {
+            battles = Math.floor(total_battles+(smith_res*res_dura))
+            money = total_money+(smith_cost*repair)
+            if (money/battles < optimum)
+            {
+                optimum = money/battles;
+                total_money = money;
+                total_battles = battles;
+                res_dura -= 1;
+            }
+            else
+                break;
+        }
+
+        var res_dura_ideal = base_dura;
+        var total_battles_ideal = base_dura;
+        var optimum_ideal = res_price/base_dura;
+        total_money = res_price;
+
+          for (var j = base_dura; j>0; j--)
+        {
+            battles = Math.floor(total_battles_ideal+(smith_res*res_dura_ideal))
+            money = total_money+(smith_cost*repair)
+            if (money/battles < optimum_ideal)
+            {
+                optimum_ideal = money/battles;
+                total_money = money;
+                total_battles_ideal = battles;
+                res_dura_ideal -= 1;
+            }
+            else
+                break;
+        }
+
+        //грёбанные округления, как я вас не люблю
+        var spent = base_dura;
+            for (var x = base_dura-1; x>=dura_to; x--)
+        {
+        spent += Math.floor((x+1)*0.9)
+        }
+        spent -= dura_from
+
+          //document.getElementById("result").innerHTML = res_price;
+          document.getElementById("optimum").innerHTML = optimum;
+          document.getElementById("dura_res").innerHTML = "0/"+res_dura;
+          document.getElementById("total_battles").innerHTML = total_battles;
+          //var spent = Math.floor(smith_res*(base_dura+dura_to+1)*(base_dura-dura_to))/2 - dura_from + base_dura
+          var spent_price = res_price+smith_cost*repair*(base_dura-dura_to)
+          var money_left = spent_price - optimum_ideal*spent
+          document.getElementById("spent").innerHTML = spent;
+          document.getElementById("money_left").innerHTML = money_left;
+
+          document.getElementById("optimum_ideal").innerHTML = optimum_ideal;
+          document.getElementById("res_dura_ideal").innerHTML = "0/"+res_dura_ideal;
+          document.getElementById("total_battles_ideal").innerHTML = total_battles_ideal;
+          }
+ </script>
+{% endblock %}

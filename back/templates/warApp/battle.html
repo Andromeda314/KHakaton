@@ -1,0 +1,285 @@
+{% extends "warApp/wrapper.html" %}
+
+{% block header %}
+<title>Просмотр боя</title>
+{% endblock %}
+
+
+{% block content %}
+<table align="center" border="3">
+<tbody align="center">
+<tr>
+    <td>
+        <h3><a href="{{ rows.link }}" target="_blank">{{ rows.date }}</a></h3>
+    </td>
+</tr>
+<tr>
+    <td>
+        <h3>{{ rows.percent }}%</h3>
+    </td>
+</tr>
+<tr>
+    <td>
+        <table border="2">
+            <tbody>
+            <tr>
+                <td align="center">
+                    <img src="https://dcdn.lordswm.com/i_clans/l_{{ rows.attack }}.gif?v=94" height="40">
+                </td>
+                <td></td>
+                <td align="center">
+                    <img src="https://dcdn.lordswm.com/i_clans/l_{{ rows.defence }}.gif?v=94" height="40">
+                </td>
+            </tr>
+            <tr>
+            <td>
+                {% for row in rows.players1 %}
+                <table border="2" size="100%" bgcolor="white" width="100%">
+                <tbody>
+                <tr>
+                    <td align="center">
+                        <strong>{{ row.name }} [{{ row.CL }}] </strong>
+                    <img src="https://dcdn.heroeswm.ru/i/f/{{ row.fraction }}.png?v=1.1">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <img src="https://dcdn.heroeswm.ru/i/icons/attr_attack.png?v=1">{{ row.attack }}
+                        <img src="https://dcdn.heroeswm.ru/i/icons/attr_defense.png?v=1">{{ row.defence }}
+                        <img src="https://dcdn.heroeswm.ru/i/icons/attr_magicpower.png?v=1">{{ row.sm }}
+                        <img src="https://dcdn.heroeswm.ru/i/icons/attr_knowledge.png?v=1">{{ row.knowl }}
+                        <img src="https://dcdn.heroeswm.ru/i/icons/attr_fortune.png?v=1">{{ row.luck }}
+                        <img src="https://dcdn.heroeswm.ru/i/icons/attr_morale.png?v=1">{{ row.morale }}
+                        <img src="https://dcdn.heroeswm.ru/i/icons/attr_initiative.png?v=1">{{ row.ini }}
+                        <img src="https://dcdn.heroeswm.ru/i/icons/attr_addbonuses.png?v=1" border="0" width="24" height="24" alt=""
+                             title="{% for effect in row.eff_names %}{{ effect.name }} {{ effect.value }}
+{% endfor %}">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <table>
+                            <tbody>
+                            <tr>
+                                {% for perk in row.perks %}
+                                <td>
+                                    <img width="60" alt="{{ perk.name }}" title="{{ perk.name }}" border="0" src="https://dcdn.heroeswm.ru/i/perks/2x{{ perk.linkname }}.png">
+                                </td>
+                                    {% endfor %}
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <table>
+                            <tbody>
+                            <tr>
+                                {% for creature in row.creatures %}
+                                <td>
+                                <table>
+                                    <tr>
+                                        <td align="center">
+                                            <img src="https://dcdn3.heroeswm.ru/i/portraits/{{ creature.creature }}anip30.png?v=10" height="60" title="{{ creature.name }}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <h5>{{ creature.count }}</h5>
+                                        </td>
+                                    </tr>
+                                </table>
+                                </td>
+                                    {% endfor %}
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr><td>{{row.set}}</td></tr>
+                <tr><td><a href="#" onclick="showEnchant()">
+                    {% if english %}
+                    Show/hide enchant
+                        {% else %}
+                        Показать/Скрыть крафт
+                {% endif %}
+                </a></td></tr>
+                <tr>
+                    <td>
+                        <table id="enchant_a{% cycle '1' '2' '3' %}">
+                            <tbody>
+                            <tr><td><img src="https://dcdn1.heroeswm.ru/i/mods/weapon/I3.gif" title="{{row.enchant.x_id.name}} {{row.enchant.x_id.value}}%">{{row.enchant.x_id.name}} {{row.enchant.x_id.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/weapon/W12.gif" title="{{row.enchant.x_aw.name}} {{row.enchant.x_aw.value}}%">{{row.enchant.x_aw.name}} {{row.enchant.x_aw.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/weapon/F12.gif" title="{{row.enchant.x_af.name}} {{row.enchant.x_af.value}}%">{{row.enchant.x_af.name}} {{row.enchant.x_af.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/weapon/A12.gif" title="{{row.enchant.x_aa.name}} {{row.enchant.x_aa.value}}%">{{row.enchant.x_aa.name}} {{row.enchant.x_aa.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/weapon/E12.gif" title="{{row.enchant.x_ae.name}} {{row.enchant.x_ae.value}}%">{{row.enchant.x_ae.name}} {{row.enchant.x_ae.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/armor/D3.gif" title="{{row.enchant.x_ia.name}} {{row.enchant.x_ia.value}}%">{{row.enchant.x_ia.name}} {{row.enchant.x_ia.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/armor/W12.gif" title="{{row.enchant.x_da.name}} {{row.enchant.x_da.value}}%">{{row.enchant.x_da.name}} {{row.enchant.x_da.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/armor/F12.gif" title="{{row.enchant.x_dw.name}} {{row.enchant.x_dw.value}}%">{{row.enchant.x_dw.name}} {{row.enchant.x_dw.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/armor/A12.gif" title="{{row.enchant.x_df.name}} {{row.enchant.x_df.value}}%">{{row.enchant.x_df.name}} {{row.enchant.x_df.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/armor/E12.gif" title="{{row.enchant.x_de.name}} {{row.enchant.x_de.value}}%">{{row.enchant.x_de.name}} {{row.enchant.x_de.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/neutral/W12.gif" title="{{row.enchant.x_ew.name}} {{row.enchant.x_ew.value}}%">{{row.enchant.x_ew.name}} {{row.enchant.x_ew.value}}% {{row.enchant.x_Iw.name}} {{row.enchant.x_Iw.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/neutral/F12.gif" title="{{row.enchant.x_ef.name}} {{row.enchant.x_ef.value}}%">{{row.enchant.x_ef.name}} {{row.enchant.x_ef.value}}% {{row.enchant.x_If.name}} {{row.enchant.x_If.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/neutral/A12.gif" title="{{row.enchant.x_ea.name}} {{row.enchant.x_ea.value}}%">{{row.enchant.x_ea.name}} {{row.enchant.x_ea.value}}% {{row.enchant.x_Iax.name}} {{row.enchant.x_Iax.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/neutral/E12.gif" title="{{row.enchant.x_ee.name}} {{row.enchant.x_ee.value}}%">{{row.enchant.x_ee.name}} {{row.enchant.x_ee.value}}% {{row.enchant.x_Ie.name}} {{row.enchant.x_Ie.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/neutral/N12.gif" title="{{row.enchant.x_en.name}} {{row.enchant.x_en.value}}%">{{row.enchant.x_en.name}} {{row.enchant.x_en.value}}%</td></tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                    </td>
+                </tr>
+                </tbody>
+                </table>
+                {% endfor %}
+            </td>
+            <td><h3><font color="red"> VS</font></h3></td>
+            <td>
+                {% for row in rows.players2 %}
+                <table border="2" size="100%" bgcolor="white" width="100%">
+                <tbody>
+                <tr>
+                    <td align="center">
+                    <strong>{{ row.name }} [{{ row.CL }}] </strong>
+                    <img src="https://dcdn.heroeswm.ru/i/f/{{ row.fraction }}.png?v=1.1">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <img src="https://dcdn.heroeswm.ru/i/icons/attr_attack.png?v=1">{{ row.attack }}
+                        <img src="https://dcdn.heroeswm.ru/i/icons/attr_defense.png?v=1">{{ row.defence }}
+                        <img src="https://dcdn.heroeswm.ru/i/icons/attr_magicpower.png?v=1">{{ row.sm }}
+                        <img src="https://dcdn.heroeswm.ru/i/icons/attr_knowledge.png?v=1">{{ row.knowl }}
+                        <img src="https://dcdn.heroeswm.ru/i/icons/attr_fortune.png?v=1">{{ row.luck }}
+                        <img src="https://dcdn.heroeswm.ru/i/icons/attr_morale.png?v=1">{{ row.morale }}
+                        <img src="https://dcdn.heroeswm.ru/i/icons/attr_initiative.png?v=1">{{ row.ini }}
+                        <img src="https://dcdn.heroeswm.ru/i/icons/attr_addbonuses.png?v=1" border="0" width="24" height="24" alt=""
+                             title="{% for effect in row.eff_names %}{{ effect.name }} {{ effect.value }}
+{% endfor %}">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <table>
+                            <tbody>
+                            <tr>
+                                {% for perk in row.perks %}
+                                <td>
+                                    <img width="60" alt="{{ perk.name }}" title="{{ perk.name }}" border="0" src="https://dcdn.heroeswm.ru/i/perks/2x{{ perk.linkname }}.png">
+                                </td>
+                                    {% endfor %}
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <table>
+                            <tbody>
+                            <tr>
+                                {% for creature in row.creatures %}
+                                <td>
+                                <table>
+                                    <tr>
+                                        <td align="center">
+                                            <img src="https://dcdn3.heroeswm.ru/i/portraits/{{ creature.creature }}anip30.png?v=10" height="60" title="{{ creature.name }}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <h5>{{ creature.count }}</h5>
+                                        </td>
+                                    </tr>
+                                </table>
+                                </td>
+                                    {% endfor %}
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr><td>{{row.set}}</td></tr>
+                <tr><td><a href="#" onclick="showEnchant()">
+                    {% if english %}
+                    Show/hide enchant
+                        {% else %}
+                        Показать/Скрыть крафт
+                {% endif %}
+                </a></td></tr>
+                <tr>
+                    <td>
+                        <table id="enchant{% cycle '1' '2' '3' %}">
+                            <tbody>
+                            <tr><td><img src="https://dcdn1.heroeswm.ru/i/mods/weapon/I3.gif" title="{{row.enchant.x_id.name}} {{row.enchant.x_id.value}}%">{{row.enchant.x_id.name}} {{row.enchant.x_id.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/weapon/W12.gif" title="{{row.enchant.x_aw.name}} {{row.enchant.x_aw.value}}%">{{row.enchant.x_aw.name}} {{row.enchant.x_aw.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/weapon/F12.gif" title="{{row.enchant.x_af.name}} {{row.enchant.x_af.value}}%">{{row.enchant.x_af.name}} {{row.enchant.x_af.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/weapon/A12.gif" title="{{row.enchant.x_aa.name}} {{row.enchant.x_aa.value}}%">{{row.enchant.x_aa.name}} {{row.enchant.x_aa.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/weapon/E12.gif" title="{{row.enchant.x_ae.name}} {{row.enchant.x_ae.value}}%">{{row.enchant.x_ae.name}} {{row.enchant.x_ae.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/armor/D3.gif" title="{{row.enchant.x_ia.name}} {{row.enchant.x_ia.value}}%">{{row.enchant.x_ia.name}} {{row.enchant.x_ia.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/armor/W12.gif" title="{{row.enchant.x_da.name}} {{row.enchant.x_da.value}}%">{{row.enchant.x_da.name}} {{row.enchant.x_da.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/armor/F12.gif" title="{{row.enchant.x_dw.name}} {{row.enchant.x_dw.value}}%">{{row.enchant.x_dw.name}} {{row.enchant.x_dw.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/armor/A12.gif" title="{{row.enchant.x_df.name}} {{row.enchant.x_df.value}}%">{{row.enchant.x_df.name}} {{row.enchant.x_df.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/armor/E12.gif" title="{{row.enchant.x_de.name}} {{row.enchant.x_de.value}}%">{{row.enchant.x_de.name}} {{row.enchant.x_de.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/neutral/W12.gif" title="{{row.enchant.x_ew.name}} {{row.enchant.x_ew.value}}%">{{row.enchant.x_ew.name}} {{row.enchant.x_ew.value}}% {{row.enchant.x_Iw.name}} {{row.enchant.x_Iw.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/neutral/F12.gif" title="{{row.enchant.x_ef.name}} {{row.enchant.x_ef.value}}%">{{row.enchant.x_ef.name}} {{row.enchant.x_ef.value}}% {{row.enchant.x_If.name}} {{row.enchant.x_If.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/neutral/A12.gif" title="{{row.enchant.x_ea.name}} {{row.enchant.x_ea.value}}%">{{row.enchant.x_ea.name}} {{row.enchant.x_ea.value}}% {{row.enchant.x_Iax.name}} {{row.enchant.x_Iax.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/neutral/E12.gif" title="{{row.enchant.x_ee.name}} {{row.enchant.x_ee.value}}%">{{row.enchant.x_ee.name}} {{row.enchant.x_ee.value}}% {{row.enchant.x_Ie.name}} {{row.enchant.x_Ie.value}}%</td></tr>
+                            <tr><td><img src="https://dcdn.heroeswm.ru/i/mods/neutral/N12.gif" title="{{row.enchant.x_en.name}} {{row.enchant.x_en.value}}%">{{row.enchant.x_en.name}} {{row.enchant.x_en.value}}%</td></tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                    </td>
+                </tr>
+                </tbody>
+                </table>
+                {% endfor %}
+            </td>
+            </tbody>
+        </table>
+    </td>
+</tr>
+</tbody>
+</table>
+
+    <script>
+var enchant_vis = true;
+function showEnchant() {
+    if(enchant_vis) {
+        document.getElementById('enchant1').style.display = 'none';
+        if (document.getElementById('enchant2') != null)
+        document.getElementById('enchant2' ).style.display = 'none';
+        if (document.getElementById('enchant3') != null)
+        document.getElementById('enchant3' ).style.display = 'none';
+
+        document.getElementById('enchant_a1').style.display = 'none';
+        if (document.getElementById('enchant_a2') != null)
+        document.getElementById('enchant_a2' ).style.display = 'none';
+        if (document.getElementById('enchant_a3') != null)
+        document.getElementById('enchant_a3' ).style.display = 'none';
+        enchant_vis = false;
+    } else {
+        document.getElementById('enchant1' ).style.display = 'block';
+        if (document.getElementById('enchant2') != null)
+        document.getElementById('enchant2' ).style.display = 'block';
+        if (document.getElementById('enchant3') != null)
+        document.getElementById('enchant3' ).style.display = 'block';
+
+        document.getElementById('enchant_a1' ).style.display = 'block';
+        if (document.getElementById('enchant_a2') != null)
+        document.getElementById('enchant_a2' ).style.display = 'block';
+        if (document.getElementById('enchant_a3') != null)
+        document.getElementById('enchant_a3' ).style.display = 'block';
+        enchant_vis = true;
+    }
+}
+</script>
+{% endblock %}

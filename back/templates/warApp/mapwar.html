@@ -1,0 +1,143 @@
+{% extends "warApp/wrapper.html" %}
+
+{% block header %}
+    {% if english %}
+        <title>Mapwars</title>
+    {% else %}
+        <title>Бои за территории</title>
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+    <div align="center" ><h2>
+        {% if english %}
+            Mapwars
+            {% else %}
+            Бои за территории
+            {% endif %}
+    </h2></div>
+    <br>
+    <p align="center">
+        {% if english %}
+            For battle analys click on date/time
+            {% else %}
+            Для перехода в разбор боя нажмите на дату
+            {% endif %}
+    </p>
+    {% include "warApp/search.html" %}
+<br>
+
+    <table border="1" align="center" bgcolor="white">
+    <tbody>
+    <tr>
+        <td>
+            {% if english %}
+            Date time
+            {% else %}
+            Дата/время
+            {% endif %}
+        </td>
+        <td>
+            {% if english %}
+            Attack clan
+            {% else %}
+            Атакующий клан
+            {% endif %}
+        </td>
+        <td>
+            {% if english %}
+            Defense clan
+            {% else %}
+            Защищающийся клан
+            {% endif %}
+        </td>
+        <td>
+            {% if english %}
+            Percents lost
+            {% else %}
+            Выбитый процент
+            {% endif %}
+        </td>
+        <td>
+            {% if english %}
+            Battlelink
+            {% else %}
+            Ссылка на бой
+            {% endif %}
+        </td>
+    </tr>
+    {% for row in rows %}
+    <tr>
+        <td>
+            <a href="battle/{{ row.war_id }}">{{ row.datetime }}</a>
+        </td>
+        <td>
+            {% for player in row.players_attack %}
+                <img src="https://dcdn.lordswm.com/i_clans/l_{{ row.attack }}.gif?v=94" height="23">
+                {% if player.victory == 1 %}
+                 <strong>
+                {% endif %}
+                {% if player.notworn %}
+                <font color="blue">
+                {% endif %}
+                    {{ player.name }} [{{ player.CL }}]
+                    <img src="https://dcdn.heroeswm.ru/i/f/{{ player.fraction }}.png?v=1.1" height="23">
+                {% if player.notworn %}
+                </font>
+                    {% if english %}
+                        <img src="https://dcdn.lordswm.com/i/star.gif" width="20" height="20" border="0" title="Artifacts are not worn">
+                    {% else %}
+                        <img src="https://dcdn.lordswm.com/i/star.gif" width="20" height="20" border="0" title="Артефакты не изношены">
+                        {% endif %}
+                {% endif %}
+                {% if player.victory == 1 %}
+                    </strong>
+                {% endif %}
+                {% endfor %}
+        </td>
+    <td>
+            {% for player in row.players_defence %}
+                <img src="https://dcdn.lordswm.com/i_clans/l_{{ row.defence }}.gif?v=94" height="23">
+                {% if player.victory == 1 %}
+                 <strong>
+                {% endif %}
+                {% if player.notworn %}
+                    <font color="blue">
+                {% endif %}
+                    {{ player.name }} [{{ player.CL }}]
+                    <img src="https://dcdn.heroeswm.ru/i/f/{{ player.fraction }}.png?v=1.1" height="23">
+                {% if player.notworn %}
+                    </font>
+                    {% if english %}
+                        <img src="https://dcdn.lordswm.com/i/star.gif" width="20" height="20" border="0" title="Artifacts are not worn">
+                    {% else %}
+                        <img src="https://dcdn.lordswm.com/i/star.gif" width="20" height="20" border="0" title="Артефакты не изношены">
+                        {% endif %}
+                {% endif %}
+                {% if player.victory == 1 %}
+                    </strong>
+                {% endif %}
+            {% endfor %}
+        </td>
+    <td>
+            {{ row.percent }}
+        </td>
+    <td>
+            <a href="{{ row.link }}" target="_blank">
+                {% if english %}
+                Battle
+                {% else %}
+                бой
+                {% endif %}
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    Да, я нагло сплагиатил <a href="http://lgnd.ru/">легенду</a>
+    Спасибо игроку <a href="https://www.heroeswm.ru/pl_info.php?id=1400037">Iulian</a> за помощь с навыками
+
+{% endblock %}

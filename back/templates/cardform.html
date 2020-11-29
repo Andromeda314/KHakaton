@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+  <title>Document</title>
+
+  <script src="jq.js"></script>
+
+</head>
+<body>
+
+<!-- loading -->
+
+<!--<div class="load">-->
+<!--  <img src='./load.gif'>-->
+<!--</div>-->
+
+<!-- main -->
+
+
+  <div class="slider">
+    <!-- Первая секция -->
+  	<div class="item">
+        <div class="overlay row">
+            <div class="wrap">
+                <div class="wrap__item title row">
+                        <h2>Общие сведения</h2>
+                </div>
+                
+                <form method="post" action="/calculation">
+                    {% csrf_token %}
+                    <table>
+                        {{ form.as_table }}
+                    </table>
+                    <input type="submit" value="Ввод данных" class="card__btn-white">
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MODAL -->
+
+<div class="modal">
+  <div class="modal-card">
+      <h1>Рекомендации системы</h1>
+      <span class="closeBtn">&times;</span>
+      <div class="modal-card__item">
+          Рекомендация 1 
+          <p>
+            Рекомендуется уменьшить количество потребляемых жиров
+          </p>
+          <span class="rec">
+            Это уменьшит риск возникновения <strong>заболевания</strong> на <strong>N</strong> процентов
+          </span>
+      </div>
+      <div class="modal-card__item">
+          Рекомендация 2
+          <p>
+            Рекомендуется добавить кардиотренировки
+          </p>
+          <span class="rec">
+            Это уменьшит риск возникновения <strong>заболевания</strong> на <strong>N</strong> процентов
+          </span>
+      </div>
+      <div class="modal-card__item">
+          Рекомендация 3
+          <p>
+            Рекомендуется снизить нагрузки на ЦНС
+          </p>
+          <span class="rec">
+            Это уменьшит риск возникновения <strong>заболевания</strong> на <strong>N</strong> процентов
+          </span>
+      </div>
+  </div>
+</div>
+    
+
+
+  <!--<script src="./script.js"></script>-->
+</body>
+</html>

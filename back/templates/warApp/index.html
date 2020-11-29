@@ -1,0 +1,85 @@
+{% extends "warApp/wrapper.html" %}
+
+{% block header %}
+<title>Главная страница</title>
+{% endblock %}
+
+
+{% block content %}
+    <table>
+    <tbody>
+    <form action="">
+    <tr>
+        <td>
+            <input type="text">
+        </td>
+        <td>
+            <input type="submit" name="Внести">
+        </td>
+    </tr>
+        </form>
+    </tbody>
+    </table>
+    <table align="center" width="50%" border="2">
+    <tbody>
+    <tr>
+        <td>
+            1
+        </td>
+        <td>
+            1
+        </td>
+        <td>
+            1
+        </td>
+    </tr>
+    {% for row in rows %}
+    <tr>
+        <td>
+            <a href={{ row.link_ru }}>ссылка</a>/<a href={{ row.link_en }}>battlelink</a>
+        </td>
+        <td>
+            {{ row.event_lvl }}
+        </td>
+        <td>
+            {{ row.loses }}
+        </td>
+    </tr>
+        <tr>
+        <td>
+            <table>
+            <tbody>
+            <tr>
+                {% for cre in row.cre_hero %}
+                <td>
+                <img src={{ cre.cre }} height="60">
+                </td>
+                <td>
+                {{ cre.count }}
+                </td>
+                {% endfor %}
+            </tr>
+            </tbody>
+            </table>
+        </td>
+        <td>
+            <table>
+            <tbody>
+            <tr>
+                {% for cre in row.cre_enemy %}
+                <td>
+                <img src={{ cre.cre }} height="60">
+                </td>
+                <td>
+                {{ cre.count }}
+                </td>
+                {% endfor %}
+            </tr>
+            </tbody>
+            </table>
+        </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "warApp/wrapper.html" %}
+
+{% block header %}
+<title>Подключенные кланы</title>
+{% endblock %}
+
+
+{% block content %}
+    <h2 align="center">
+    {% if english %}
+    Clans, already added to DB
+    {% else %}
+    Кланы, ужа добавленные к базе данных сайта
+    {% endif %}
+    </h2>
+    <br>
+    <table bgcolor="#fff8dc" align="center" border="1">
+    <tbody>
+    <tr>
+        {% if english %}
+        {% else %}
+            <td>ID клана</td>
+            <td>Обработано до</td></tr>
+        {% endif %}
+    {% for clan in clans %}
+        <tr><td><img src="https://dcdn.lordswm.com/i_clans/l_{{ clan.ID }}.gif?v=94" height="30">#{{ clan.ID }}</td>
+        <td>{{ clan.time }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

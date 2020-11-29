@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block title %}Главная страница{% endblock %}
+{% block content %}
+<h1>ВЫВОДИМ ДАННЫЕ</h1>
+
+<p>Артериальная гипертензия: {{ data_art }}</p>
+<p>ОНМК: {{ data_onmk }}</p>
+<p>Стенокардия, ИБС, инфаркт миокарда: {{ data_steno }}</p>
+<p>Сердечная недостаточность: {{ data_heart }}</p>
+
+<h1>Рекомендации:</h1>
+{{ rekomend }}
+{% endblock %}

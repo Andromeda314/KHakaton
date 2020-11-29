@@ -1,0 +1,1140 @@
+    <form method="get" action="">
+{% if english %}
+    <p align="center"><font color="green"> Filter by two tables means "any from the team". By four (opens by click) - every exact player (red, blue, and so on.)</font></p>
+{% else %}
+    <p align="center"><font color="green"> Фильтр по двум таблицам осуществляется по принципу "любой из команды". По четырем (открываются по нажатию) - каждый конкретный игрок отдельно (красный, синий, и т.д.)</font></p>
+    <br>
+{% endif %}
+    <table align="center">
+    <tbody>
+    <tr>
+        <td>
+            {% if english %}
+                Attackers filter
+            {% else %}
+            Фильтр по атакующим
+            {% endif %}
+        </td>
+        <td width="50">
+
+        </td>
+        <td>
+            {% if english %}
+                Defenders filter
+            {% else %}
+            Фильтр по защитникам
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table border="0" align="center" bgcolor="#ffaaaa">
+            <tbody>
+        <tr>
+            <td>
+                {% if english %}
+                Faction
+                {% else %}
+                Фракция
+                {% endif %}
+            </td>
+            <td>
+                <table>
+                    <tbody>
+                    <tr>
+                    <td>
+                        <input type="radio" name="nameOfChoice1" value="Любая"><strong>
+                        {% if english %}
+                        Any
+                        {% else %}
+                        Все
+                        {% endif %}
+                    </strong>
+                    </td>
+                    </tr>
+                    {% if english %}
+                    <tr>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="Рыцарь">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Рыцарь }}.png" width="25" title="Canned meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="Некромант">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Некромант }}.png" width="25" title="rotten meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="Маг">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Маг }}.png" width="25" title="magic meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="Эльф">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Эльф }}.png" width="25" title="eared meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="Варвар">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Варвар }}.png" width="25" title="Brutal meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="ТЭ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ТЭ }}.png" width="25" title="Dark-eared meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="Демон">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Демон }}.png" width="25" title="Redfaced meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="Гном">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Гном }}.png" width="25" title="small cocky meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="СВ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.СВ }}.png" width="25" title="Gypsy meat">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="РС">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.РС }}.png" width="25" title="Light canned meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="НПС">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.НПС }}.png" width="25" title="Annoying rotten meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="МР">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.МР }}.png" width="25" title="Mad magic meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="ЭЗ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ЭЗ }}.png" width="25" title="Run and die!">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="ВК">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ВК }}.png" width="25" title="Blood brutal meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="ВШ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ВШ }}.png" width="25" title="Fat meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="ТЭУ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ТЭУ }}.png" width="25" title="Drow">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="ДТ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ДТ }}.png" width="25" title="Jumping random meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="ГО">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ГО }}.png" width="25" title="Battlewise small meat">
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="Рыцарь">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Рыцарь }}.png" width="25" title="Консерва">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="Некромант">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Некромант }}.png" width="25" title="Тухляк">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="Маг">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Маг }}.png" width="25" title="Табуретка">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="Эльф">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Эльф }}.png" width="25" title="Ухо">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="Варвар">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Варвар }}.png" width="25" title="Смертник">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="ТЭ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ТЭ }}.png" width="25" title="Темноух">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="Демон">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Демон }}.png" width="25" title="Краснолицый">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="Гном">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Гном }}.png" width="25" title="Коротышка">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="СВ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.СВ }}.png" width="25" title="Цыган">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="РС">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.РС }}.png" width="25" title="Светлая консерва">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="НПС">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.НПС }}.png" width="25" title="Надоедливый тухляк">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="МР">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.МР }}.png" width="25" title="Джиновод">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="ЭЗ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ЭЗ }}.png" width="25" title="Беги-бей">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="ВК">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ВК }}.png" width="25" title="Барб-цыган">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="ВШ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ВШ }}.png" width="25" title="Толстопуз">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="ТЭУ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ТЭУ }}.png" width="25" title="Дроу">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="ДТ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ДТ }}.png" width="25" title="Синежаб">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice1" value="ГО">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ГО }}.png" width="25" title="ГноМР">
+                        </td>
+                    </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </td>
+    </tr>
+    <tr>
+        <td>
+            {% if english %}
+                Combat level
+            {% else %}
+                Боевой уровень
+            {% endif %}
+        </td>
+        <td align="center">
+            <select name="CL1">
+                {% if english %}
+                <option>Any</option>
+            {% else %}
+                <option>Любой</option>
+                {% endif %}
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {% if english %}
+                <option>Build</option>
+            {% else %}
+                Билд
+                {% endif %}
+        </td>
+        <td align="center">
+            <select name="Build1">
+                {% if english %}
+                <option>Any</option>
+                <option>chaos with scroll</option>
+                <option>chaos with shield</option>
+                <option>Attacker with dagger</option>
+                <option>Attacker with shield</option>
+                <option>Mixed</option>
+                <option>Set</option>
+                <option>Something strange</option>
+            {% else %}
+                <option>Любой</option>
+                <option>Хаос в свитке</option>
+                <option>Хаос в щите</option>
+                <option>Атакер в кинжале</option>
+                <option>Атакер в щите</option>
+                <option>Гибрид</option>
+                <option>Сет</option>
+                <option>Что-то</option>
+                {% endif %}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {% if english %}
+            Nickname
+            {% else %}
+            Ник игрока
+            {% endif %}
+        </td>
+        <td align="center">
+            <input name="ник1">
+        </td>
+    </tr>
+            <tr>
+                <td>
+                    {% if english %}
+                    Clan
+                    {% else %}
+                    Клан
+                    {% endif %}
+                </td>
+            <td align="center">
+                <input name="клан1">
+            </td>
+            </tr>
+    </tbody>
+    </table>
+        </td>
+        <td>
+
+        </td>
+        <td>
+                <table border="0" align="center" bgcolor="#aaaaff">
+    <tbody>
+    <tr>
+        <td>
+            {% if english %}
+                Faction
+                {% else %}
+                Фракция
+                {% endif %}
+        </td>
+        <td>
+            <table>
+                <tbody>
+                <tr>
+                    <td>
+                        <input type="radio" name="nameOfChoice2" value="Любая"><strong>
+                        {% if english %}
+                        Any
+                        {% else %}
+                        Все
+                        {% endif %}
+                    </strong>
+                    </td>
+                </tr>
+                {% if english %}
+                    <tr>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="Рыцарь">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Рыцарь }}.png" width="25" title="Canned meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="Некромант">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Некромант }}.png" width="25" title="rotten meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="Маг">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Маг }}.png" width="25" title="magic meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="Эльф">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Эльф }}.png" width="25" title="eared meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="Варвар">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Варвар }}.png" width="25" title="Brutal meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="ТЭ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ТЭ }}.png" width="25" title="Dark-eared meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="Демон">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Демон }}.png" width="25" title="Redfaced meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="Гном">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Гном }}.png" width="25" title="small cocky meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="СВ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.СВ }}.png" width="25" title="Gypsy meat">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="РС">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.РС }}.png" width="25" title="Light canned meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="НПС">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.НПС }}.png" width="25" title="Annoying rotten meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="МР">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.МР }}.png" width="25" title="Mad magic meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="ЭЗ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ЭЗ }}.png" width="25" title="Run and die!">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="ВК">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ВК }}.png" width="25" title="Blood brutal meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="ВШ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ВШ }}.png" width="25" title="Fat meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="ТЭУ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ТЭУ }}.png" width="25" title="Drow">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="ДТ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ДТ }}.png" width="25" title="Jumping random meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="ГО">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ГО }}.png" width="25" title="Battlewise small meat">
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="Рыцарь">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Рыцарь }}.png" width="25" title="Консерва">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="Некромант">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Некромант }}.png" width="25" title="Тухляк">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="Маг">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Маг }}.png" width="25" title="Табуретка">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="Эльф">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Эльф }}.png" width="25" title="Ухо">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="Варвар">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Варвар }}.png" width="25" title="Смертник">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="ТЭ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ТЭ }}.png" width="25" title="Темноух">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="Демон">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Демон }}.png" width="25" title="Краснолицый">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="Гном">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Гном }}.png" width="25" title="Коротышка">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="СВ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.СВ }}.png" width="25" title="Цыган">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="РС">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.РС }}.png" width="25" title="Светлая консерва">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="НПС">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.НПС }}.png" width="25" title="Надоедливый тухляк">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="МР">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.МР }}.png" width="25" title="Джиновод">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="ЭЗ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ЭЗ }}.png" width="25" title="Беги-бей">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="ВК">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ВК }}.png" width="25" title="Барб-цыган">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="ВШ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ВШ }}.png" width="25" title="Толстопуз">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="ТЭУ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ТЭУ }}.png" width="25" title="Дроу">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="ДТ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ДТ }}.png" width="25" title="Синежаб">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice2" value="ГО">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ГО }}.png" width="25" title="ГноМР">
+                        </td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {% if english %}
+                Combat level
+            {% else %}
+                Боевой уровень
+            {% endif %}
+        </td>
+        <td align="center">
+            <select name="CL2">
+                {% if english %}
+                <option>Any</option>
+            {% else %}
+                <option>Любой</option>
+                {% endif %}
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {% if english %}
+                <option>Build</option>
+            {% else %}
+                Билд
+                {% endif %}
+        </td>
+        <td align="center">
+            <select name="Build2">
+                {% if english %}
+                <option>Any</option>
+                <option>chaos with scroll</option>
+                <option>chaos with shield</option>
+                <option>Attacker with dagger</option>
+                <option>Attacker with shield</option>
+                <option>Mixed</option>
+                <option>Set</option>
+                <option>Something strange</option>
+            {% else %}
+                <option>Любой</option>
+                <option>Хаос в свитке</option>
+                <option>Хаос в щите</option>
+                <option>Атакер в кинжале</option>
+                <option>Атакер в щите</option>
+                <option>Гибрид</option>
+                <option>Сет</option>
+                <option>Что-то</option>
+                {% endif %}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {% if english %}
+            Nickname
+            {% else %}
+            Ник игрока
+            {% endif %}
+        </td>
+        <td align="center">
+            <input name="ник2">
+        </td>
+    </tr>
+    <tr>
+        <td>
+                    {% if english %}
+                    Clan
+                    {% else %}
+                    Клан
+                    {% endif %}
+                </td>
+            <td align="center">
+                <input name="клан2">
+            </td>
+            </tr>
+    </tbody>
+    </table>
+        </td>
+    </tr>
+    <tr>
+{#        <td></td>#}
+        <td align="center">
+            <a href="#" onclick="showTables()">
+                {% if english %}
+                Show/Hide filter by position on battlefield
+                {% else %}
+                Показать/Скрыть фильтр по положению на поле
+                {% endif %}
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+                <table border="0" align="center" bgcolor="#ffeaaa" id="table3">
+    <tbody>
+    <tr>
+        <td>
+            {% if english %}
+                Faction
+                {% else %}
+                Фракция
+                {% endif %}
+            <input type="hidden" id="shown" name="tables" value="tables">
+        </td>
+        <td>
+            <table>
+                <tbody>
+                <tr>
+                    <td>
+                        <input type="radio" name="nameOfChoice3" value="Любая"><strong>
+                        {% if english %}
+                        Any
+                        {% else %}
+                        Все
+                        {% endif %}
+                    </strong>
+                    </td>
+                </tr>
+                {% if english %}
+                    <tr>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="Рыцарь">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Рыцарь }}.png" width="25" title="Canned meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="Некромант">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Некромант }}.png" width="25" title="rotten meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="Маг">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Маг }}.png" width="25" title="magic meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="Эльф">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Эльф }}.png" width="25" title="eared meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="Варвар">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Варвар }}.png" width="25" title="Brutal meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="ТЭ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ТЭ }}.png" width="25" title="Dark-eared meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="Демон">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Демон }}.png" width="25" title="Redfaced meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="Гном">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Гном }}.png" width="25" title="small cocky meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="СВ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.СВ }}.png" width="25" title="Gypsy meat">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="РС">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.РС }}.png" width="25" title="Light canned meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="НПС">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.НПС }}.png" width="25" title="Annoying rotten meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="МР">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.МР }}.png" width="25" title="Mad magic meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="ЭЗ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ЭЗ }}.png" width="25" title="Run and die!">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="ВК">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ВК }}.png" width="25" title="Blood brutal meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="ВШ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ВШ }}.png" width="25" title="Fat meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="ТЭУ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ТЭУ }}.png" width="25" title="Drow">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="ДТ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ДТ }}.png" width="25" title="Jumping random meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="ГО">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ГО }}.png" width="25" title="Battlewise small meat">
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="Рыцарь">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Рыцарь }}.png" width="25" title="Консерва">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="Некромант">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Некромант }}.png" width="25" title="Тухляк">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="Маг">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Маг }}.png" width="25" title="Табуретка">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="Эльф">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Эльф }}.png" width="25" title="Ухо">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="Варвар">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Варвар }}.png" width="25" title="Смертник">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="ТЭ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ТЭ }}.png" width="25" title="Темноух">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="Демон">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Демон }}.png" width="25" title="Краснолицый">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="Гном">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Гном }}.png" width="25" title="Коротышка">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="СВ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.СВ }}.png" width="25" title="Цыган">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="РС">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.РС }}.png" width="25" title="Светлая консерва">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="НПС">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.НПС }}.png" width="25" title="Надоедливый тухляк">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="МР">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.МР }}.png" width="25" title="Джиновод">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="ЭЗ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ЭЗ }}.png" width="25" title="Беги-бей">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="ВК">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ВК }}.png" width="25" title="Барб-цыган">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="ВШ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ВШ }}.png" width="25" title="Толстопуз">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="ТЭУ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ТЭУ }}.png" width="25" title="Дроу">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="ДТ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ДТ }}.png" width="25" title="Синежаб">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice3" value="ГО">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ГО }}.png" width="25" title="ГноМР">
+                        </td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {% if english %}
+                Combat level
+            {% else %}
+                Боевой уровень
+            {% endif %}
+        </td>
+        <td align="center">
+            <select name="CL3">
+                {% if english %}
+                <option>Any</option>
+            {% else %}
+                <option>Любой</option>
+                {% endif %}
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {% if english %}
+                <option>Build</option>
+            {% else %}
+                Билд
+                {% endif %}
+        </td>
+        <td align="center">
+            <select  name="Build3">
+                {% if english %}
+                <option>Any</option>
+                <option>chaos with scroll</option>
+                <option>chaos with shield</option>
+                <option>Attacker with dagger</option>
+                <option>Attacker with shield</option>
+                <option>Mixed</option>
+                <option>Set</option>
+                <option>Something strange</option>
+            {% else %}
+                <option>Любой</option>
+                <option>Хаос в свитке</option>
+                <option>Хаос в щите</option>
+                <option>Атакер в кинжале</option>
+                <option>Атакер в щите</option>
+                <option>Гибрид</option>
+                <option>Сет</option>
+                <option>Что-то</option>
+                {% endif %}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {% if english %}
+            Nickname
+            {% else %}
+            Ник игрока
+            {% endif %}
+        </td>
+    </tr>
+    </tbody>
+    </table>
+        </td>
+        <td>
+
+        </td>
+        <td>
+            <table border="0" align="center" bgcolor="#aaffaa" id="table4">
+    <tbody>
+    <tr>
+        <td>
+            {% if english %}
+                Faction
+                {% else %}
+                Фракция
+                {% endif %}
+        </td>
+        <td>
+            <table>
+                <tbody>
+                <tr>
+                    <td>
+                        <input type="radio" name="nameOfChoice4" value="Любая"><strong>
+                        {% if english %}
+                        Any
+                        {% else %}
+                        Все
+                        {% endif %}
+                    </strong>
+                    </td>
+                </tr>
+                {% if english %}
+                    <tr>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="Рыцарь">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Рыцарь }}.png" width="25" title="Canned meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="Некромант">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Некромант }}.png" width="25" title="rotten meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="Маг">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Маг }}.png" width="25" title="magic meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="Эльф">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Эльф }}.png" width="25" title="eared meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="Варвар">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Варвар }}.png" width="25" title="Brutal meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="ТЭ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ТЭ }}.png" width="25" title="Dark-eared meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="Демон">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Демон }}.png" width="25" title="Redfaced meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="Гном">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Гном }}.png" width="25" title="small cocky meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="СВ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.СВ }}.png" width="25" title="Gypsy meat">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="РС">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.РС }}.png" width="25" title="Light canned meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="НПС">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.НПС }}.png" width="25" title="Annoying rotten meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="МР">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.МР }}.png" width="25" title="Mad magic meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="ЭЗ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ЭЗ }}.png" width="25" title="Run and die!">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="ВК">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ВК }}.png" width="25" title="Blood brutal meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="ВШ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ВШ }}.png" width="25" title="Fat meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="ТЭУ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ТЭУ }}.png" width="25" title="Drow">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="ДТ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ДТ }}.png" width="25" title="Jumping random meat">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="ГО">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ГО }}.png" width="25" title="Battlewise small meat">
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="Рыцарь">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Рыцарь }}.png" width="25" title="Консерва">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="Некромант">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Некромант }}.png" width="25" title="Тухляк">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="Маг">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Маг }}.png" width="25" title="Табуретка">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="Эльф">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Эльф }}.png" width="25" title="Ухо">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="Варвар">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Варвар }}.png" width="25" title="Смертник">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="ТЭ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ТЭ }}.png" width="25" title="Темноух">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="Демон">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Демон }}.png" width="25" title="Краснолицый">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="Гном">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.Гном }}.png" width="25" title="Коротышка">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="СВ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.СВ }}.png" width="25" title="Цыган">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="РС">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.РС }}.png" width="25" title="Светлая консерва">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="НПС">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.НПС }}.png" width="25" title="Надоедливый тухляк">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="МР">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.МР }}.png" width="25" title="Джиновод">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="ЭЗ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ЭЗ }}.png" width="25" title="Беги-бей">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="ВК">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ВК }}.png" width="25" title="Барб-цыган">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="ВШ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ВШ }}.png" width="25" title="Толстопуз">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="ТЭУ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ТЭУ }}.png" width="25" title="Дроу">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="ДТ">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ДТ }}.png" width="25" title="Синежаб">
+                        </td>
+                        <td>
+                            <input type="radio" name="nameOfChoice4" value="ГО">
+                            <img src="https://dcdn.heroeswm.ru/i/f/{{ fractions.ГО }}.png" width="25" title="ГноМР">
+                        </td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {% if english %}
+                Combat level
+            {% else %}
+                Боевой уровень
+            {% endif %}
+        </td>
+        <td align="center">
+            <select name="CL4">
+                {% if english %}
+                <option>Any</option>
+            {% else %}
+                <option>Любой</option>
+                {% endif %}
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {% if english %}
+                <option>Build</option>
+            {% else %}
+                Билд
+                {% endif %}
+        </td>
+        <td align="center">
+            <select name="Build4">
+                {% if english %}
+                <option>Any</option>
+                <option>chaos with scroll</option>
+                <option>chaos with shield</option>
+                <option>Attacker with dagger</option>
+                <option>Attacker with shield</option>
+                <option>Mixed</option>
+                <option>Set</option>
+                <option>Something strange</option>
+            {% else %}
+                <option>Любой</option>
+                <option>Хаос в свитке</option>
+                <option>Хаос в щите</option>
+                <option>Атакер в кинжале</option>
+                <option>Атакер в щите</option>
+                <option>Гибрид</option>
+                <option>Сет</option>
+                <option>Что-то</option>
+                {% endif %}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {% if english %}
+            Nickname
+            {% else %}
+            Ник игрока
+            {% endif %}
+        </td>
+    </tr>
+    </tbody>
+    </table>
+        </td>
+    </tr>
+    </tbody>
+    </table>
+        <br>
+    {% if english %}
+    <div align="center"><input type="submit" value="Go!"></div>
+    {% else %}
+<div align="center"><input type="submit" value="Погнали"></div>
+{% endif %}
+    </form>
+
+    <script type="text/javascript">
+var visible = true;
+function showTables() {
+    if(visible) {
+        document.getElementById('table3' ).style.display = 'none';
+        document.getElementById('table4' ).style.display = 'none';
+        document.getElementById('shown' ).value = 'noTables';
+        visible = false;
+    } else {
+        document.getElementById('table3' ).style.display = 'block';
+        document.getElementById('table4' ).style.display = 'block';
+        document.getElementById('shown' ).value = 'tables';
+        visible = true;
+    }
+}
+showTables()
+</script>
