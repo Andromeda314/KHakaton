@@ -10,6 +10,32 @@ body{
   transition: 0.5s;
 }
 
+form{
+    width: 100%;
+}
+
+table{
+    margin: auto;
+}
+
+tbody{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    margin: auto;
+    width: 100%;
+}
+
+tr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+th{
+    color: white;
+}
+
 .slider{
   max-width: 80%;
   position: relative;
@@ -97,6 +123,7 @@ body{
   border-radius: 5px;
   font-size: 19px;
   transition: .5s;
+  margin-left: 250px;
 }
 
 .card__btn-white:hover{
