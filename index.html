@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!DOCTYPE html5>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
-  <title>Project</title>
+  <title>Document</title>
 
   <script src="jq.js"></script>
 
@@ -34,6 +34,13 @@
                     <div class="main__item">
                       <span>ФИО</span>
                       <input class="namePacient" type="text">
+                    </div>
+                    <div class="main__item">
+                      <span>Пол</span>
+                      <select class="sex">
+                        <option value="1">Мужской</option>
+                        <option value="2">Женский</option>
+                      </select>
                     </div>
                     <div class="main__item">
                       <span>Возраст</span>
@@ -122,12 +129,30 @@
       <span class="closeBtn">&times;</span>
       <div class="modal-card__item">
           Рекомендация 1 
+          <p>
+            Рекомендуется уменьшить количество потребляемых жиров
+          </p>
+          <span class="rec">
+            Это уменьшит риск возникновения <strong>заболевания</strong> на <strong>N</strong> процентов
+          </span>
       </div>
       <div class="modal-card__item">
-          Рекомендация 2 
+          Рекомендация 2
+          <p>
+            Рекомендуется добавить кардиотренировки
+          </p>
+          <span class="rec">
+            Это уменьшит риск возникновения <strong>заболевания</strong> на <strong>N</strong> процентов
+          </span>
       </div>
       <div class="modal-card__item">
           Рекомендация 3
+          <p>
+            Рекомендуется снизить нагрузки на ЦНС
+          </p>
+          <span class="rec">
+            Это уменьшит риск возникновения <strong>заболевания</strong> на <strong>N</strong> процентов
+          </span>
       </div>
   </div>
 </div>

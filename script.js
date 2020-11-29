@@ -1,6 +1,14 @@
 'use strict'
 window.addEventListener('DOMContentLoaded', function () {
 
+  function sda(){
+    return fetch('http://venisoking.ru/heart?data')
+    .then(data => data.json())
+    .then(data => console.log(data))
+  }
+
+  sda();
+
   const loading = document.querySelector('.load');
 
   window.addEventListener('load', function(){
@@ -24,7 +32,8 @@ window.addEventListener('DOMContentLoaded', function () {
   mestoProz = document.querySelector('.mestoProz'), //mestoProzivania vypad
   alc = document.querySelector('.alc'), //alc vypad
   kurenie = document.querySelector('.kurenie'), //kurenie vepad
-  sport = document.querySelector('.sport'); //sport vypad
+  sport = document.querySelector('.sport'), //sport vypad
+  sex = document.querySelector('.sex');
 
 
   let itemCard = document.querySelector('.item');
@@ -35,21 +44,90 @@ window.addEventListener('DOMContentLoaded', function () {
   console.log(wrapBody);
 
 
-   
+  // https://jsonplaceholder.typicode.com/users
 
 
-//   function sendPost(method = 'POST', url = 'https://jsonplaceholder.typicode.com/users', body) {
-      function sendPost(){
+  function sendPost(method = 'POST', url = 'http://venisoking.ru/heart' , body) {
 
     loading.classList.remove('hidden');
 
-    let body = {
+    body = {
+      d_art: {
+        age: age.value, 
+        heightPeople: heightPeople.value, 
+        weightPeople: weightPeople.value,
+        mestoProz: {
+          value: mestoProz.value, 
+          text: $(".mestoProz option:selected").text()
+        }, 
+        dostatok: {
+          value: dostatok.value, 
+          text: $(".dostatok option:selected").text()
+        }
+      },
+      d_onmk: {
+        age: age.value, 
+        kholesterin: kholesterin.value, 
+        sex: {
+          value: sex.value, 
+          text: $(".sex option:selected").text()
+        }, 
+        kurenie: {
+          value: kurenie.value, 
+          text: $(".kurenie option:selected").text()
+        }, 
+        dostatok: {
+          value: dostatok.value, 
+          text: $(".dostatok option:selected").text()
+        },
+        alc: {
+          value: alc.value, 
+          text: $(".alc option:selected").text()
+        }
+      },
+        d_steno: {
+          age: age.value,
+          glukoza: glukoza.value,
+          mestoProz: {
+            value: mestoProz.value, 
+            text: $(".mestoProz option:selected").text()
+          }, 
+          kurenie: {
+            value: kurenie.value, 
+            text: $(".kurenie option:selected").text()
+          }, 
+          dostatok: {
+            value: dostatok.value, 
+            text: $(".dostatok option:selected").text()
+          }
+        },
+        d_heart: {
+          age: age.value,
+          glukoza: glukoza.value,
+          kholesterin: kholesterin.value, 
+          sex: {
+            value: sex.value, 
+            text: $(".sex option:selected").text()
+          }, 
+          kurenie: {
+            value: kurenie.value, 
+            text: $(".kurenie option:selected").text()
+          }, 
+          dostatok: {
+            value: dostatok.value, 
+            text: $(".dostatok option:selected").text()
+          }
+        },
       namePacient: namePacient.value,
       age: age.value, 
       heightPeople: heightPeople.value, 
       weightPeople: weightPeople.value,
       glukoza: glukoza.value,
       kholesterin: kholesterin.value, 
+      sex: {
+        value: sex.value, 
+        text: $(".sex option:selected").text()
+      }, 
       obraz: {
         value: obraz.value, 
         text: $(".obraz option:selected").text()
@@ -80,21 +158,20 @@ window.addEventListener('DOMContentLoaded', function () {
       }, 
     };
 
-//     const headers = {
-//       'Content-Type': 'application/json'
-//     }
+    const headers = {
+      'Content-Type': 'application/json'
+    }
 
-//     return fetch(url, {
+    return fetch(url, {
 
-//         method: method,
-//         body: JSON.stringify(body),
-//         headers: headers
-//       })
-//       .then(response => response.json())
-//       .then(json => {
+        method: method,
+        body: JSON.stringify(body),
+        headers: headers
+      })
+      .then(response => response.json())
+      .then(json => {
              
-//         console.log(json)
-        return function(){
+        console.log(json)
         itemCard.innerHTML = `
           <div class="overlay row">
             <div class="wrap">
@@ -110,19 +187,22 @@ window.addEventListener('DOMContentLoaded', function () {
                         <div class="card__list">
                             <ul class="patientMainInfo">
                                 <li>
-                                 ФИО - ${body.namePacient}
+                                 ФИО - ${json.namePacient}
                                 </li>
                                 <li>
-                                  Рост - ${body.heightPeople}
+                                  Пол - ${json.sex.text}
                                 </li>
                                 <li>
-                                  Вес - ${body.weightPeople}
+                                  Рост - ${json.heightPeople}
+                                </li>
+                                <li>
+                                  Вес - ${json.weightPeople}
                                 </li>
                                  <li>
-                                  Глюкоза - ${body.glukoza}
+                                  Глюкоза - ${json.glukoza}
                                 </li>
                                  <li>
-                                  Холестерин - ${body.kholesterin}
+                                  Холестерин - ${json.kholesterin}
                                 </li>
                             </ul>
                         </div>
@@ -131,45 +211,56 @@ window.addEventListener('DOMContentLoaded', function () {
                     <div class="main__item main__item-center card" style="color: black;">
 
                         <div class="card__header">
-                            ${body.namePacient}
+                            ${json.namePacient}
                         </div>
 
                         <div class="card__list">
-                            <ul>
+                            <ul class='main'>
                                 <li>
                                     <strong>Место жительства</strong>
-                                    <span>${body.mestoProz.text}</span>
-                                    <span> - г. Кемерово</span>
+                                    <span>${json.mestoProz.text}</span>
                                 </li>
                                 <li>
                                     <strong>Образ жизни</strong>
-                                    <span>${body.obraz.text}</span>
+                                    <span>${json.obraz.text}</span>
                                 </li>
                                 <li>
                                     <strong>Достаток</strong>
-                                    <span>${body.dostatok.text}</span>
+                                    <span>${json.dostatok.text}</span>
                                 </li>
                                 <li>
                                     <strong>Стресс</strong>
-                                    <span>${body.stress.text}</span>
+                                    <span>${json.stress.text}</span>
                                 </li>
                                 <li>
                                     <strong>Курение</strong>
-                                    <span>${body.kurenie.text}</span>
+                                    <span>${json.kurenie.text}</span>
                                 </li>
                                 <li>
                                     <strong>Алкоголь</strong>
-                                    <span>${body.alc.text}</span>
+                                    <span>${json.alc.text}</span>
                                 </li>
                                 <li>
                                     <strong>Спорт</strong>
-                                    <span>${body.sport.text}</span>
-                                </li>
-                                <li>
-                                    <strong>Предварительный диагноз</strong>
-                                    <span>Сердечная недостаточность</span>
+                                    <span>${json.sport.text}</span>
                                 </li>
                             </ul>
+                            <div>
+                              <strong>Вероятность возникновения сердечной недостаточности</strong>
+                            </div>
+                            <progress max="100" value="10" id="progress"></progress>
+                            <div>
+                              <strong>Вероятность возникновения ОНМК</strong>
+                            </div>
+                            <progress max="100" value="16" id="progress"></progress>
+                            <div>
+                              <strong>Вероятность возникновения стенокардии</strong>
+                            </div>
+                            <progress max="100" value="43" id="progress"></progress>
+                            <div>
+                              <strong>Вероятность возникновения артериальной гипертензии</strong>
+                            </div>
+                            <progress max="100" value="24" id="progress"></progress>
                         </div>
 
                         <button class="card__btn card__btn-green repeatBtn">Повторный осмотр</button>
@@ -197,7 +288,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
         loading.classList.add('hidden');
 
-      }
+      })
   }
 
 
