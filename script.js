@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', function () {
   // https://jsonplaceholder.typicode.com/users
 
 
-  function sendPost(method = 'POST', url = 'http://venisoking.ru/heart' , body) {
+  function sendPost(method = 'POST', url = 'https://jsonplaceholder.typicode.com/users' , body) {
 
     loading.classList.remove('hidden');
 
@@ -270,6 +270,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 </div>
             </div>
         </div>
+        </form>
     `
 
         document.querySelector('.repeatBtn').addEventListener('click', () => {
